@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Basic Conditional Calculator</title>
+
+    <style>
+
+    	body{
+    		display:flex;
+    		background-color:#000080;
+    	}
+
+    	.container{
+			display:flex;
+			justify-content:center;
+			justify-content:space-evenly;
+			margin-top:20px;
+		}
+
+		.box{
+			width:600px;
+			padding:15px;
+			border:2px solid;
+			background-color:white;
+			border-radius:15px;
+		}
+    </style>
+
+</head>
+<body>
+
+<div class= box>
+<div class= container>
+
+<form id="Calculator">
+    <p>Enter 1st Number:</p>
+    <input type="number" id="num1"><br>
+
+    <p>Enter 2nd Number:</p>
+    <input type="number" id="num2"><br><br>
+
+    <select id="operation">
+        <option value="add">Addition</option>
+        <option value="sub">Subtraction</option>
+        <option value="mul">Multiplication</option>
+        <option value="div">Division</option>
+    </select><br><br>
+
+    <button type="button" onclick="displayMe()">Calculate</button>
+</form>
+
+<h3 id="viewResult"></h3>
+
+<br>
+<br>
+
+</div>
+</div>
+
+<script>
+    function displayMe() {
+
+        let num1 = Number(document.getElementById('num1').value);
+        let num2 = Number(document.getElementById('num2').value);
+        let operation = document.getElementById('operation').value;
+        let result;
+
+     
+        if (operation === "add") {
+            result = num1 + num2;
+        } else if (operation === "sub") {
+            result = num1 - num2;
+        } else if (operation === "mul") {
+            result = num1 * num2;
+        } else if (operation === "div") {
+            if (num2 === 0) {
+                alert("Cannot Divide by Zero!");
+                return;
+            }
+            result = num1 / num2;
+        }
+
+
+        document.getElementById('viewResult').innerText = "The result is: " + result;
+    }
+</script>
+
+</body>
+</html>
